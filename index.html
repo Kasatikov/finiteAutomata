@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finite automata</title>
+</head>
+<style>
+    html, body {
+        height: 100%;
+    }
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+    }
+    #confirm {
+        margin-left: 20px;
+    }
+    #input {
+        width: 250px;
+    }
+    #log {
+        text-align: center;
+        margin-top: 20px;
+    }
+    #log > div {
+        margin-top: 10px;
+    }
+    #image {
+        background-image: url(scheme.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 400px;
+        height: 300px;
+        margin: 0 auto;
+    }
+</style>
+<body>
+<div id="image">
+</div>
+<div class="wrapper">
+    <input id="input" type="text" placeholder="Введите цепочку языка"/>
+    <button id="confirm">Вычислить</button>
+</div>
+<div id="log"></div>
+<script src="./finiteAutomata.js"></script>
+</body>
+</html>
