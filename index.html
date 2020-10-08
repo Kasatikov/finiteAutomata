@@ -23,6 +23,7 @@
     #log {
         text-align: center;
         margin-top: 20px;
+        margin-bottom: 20px;
     }
     #log > div {
         margin-top: 10px;
@@ -33,11 +34,31 @@
         background-repeat: no-repeat;
         width: 400px;
         height: 300px;
-        margin: 0 auto;
+    }
+    #rules {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-weight: bold;
+        align-items: center;
+    }
+    #info-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
     }
 </style>
 <body>
-<div id="image">
+<div id="info-wrapper">
+    <div id="image">
+    </div>
+    <div id="rules">
+        <div> S → 0</div>
+        <div> SK → 1 | SK1</div>
+        <div> SL → SK0</div>
+        <div> K → SL1</div>
+    </div>
 </div>
 <div class="wrapper">
     <input id="input" type="text" placeholder="Введите цепочку языка"/>

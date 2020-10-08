@@ -22,14 +22,14 @@ function finiteAutomata(str) {
         switch (currentState) {
             case STATES.H: {
                 if (char === TERMINALS[0]) {
-                    html +=('<div>' + charChain + '-->' + STATES.H + '</div>');
+                    html +=('<div>' + charChain + ' --> ' + STATES.H + '</div>');
                     currentState = STATES.S;
-                    html +=('<div>' + char + '-->' + STATES.S + '</div>');
+                    html +=('<div>' + char + ' --> ' + STATES.S + '</div>');
                 }
                 else if (char === TERMINALS[1]) {
-                    html+=('<div>' + charChain + '-->' + STATES.H + '</div>');
+                    html+=('<div>' + charChain + ' --> ' + STATES.H + '</div>');
                     currentState = STATES.SK;
-                    html+=('<div>' + char + '-->' + STATES.SK + '</div>');
+                    html+=('<div>' + char + ' --> ' + STATES.SK + '</div>');
                 }
                 else {
                     currentState = STATES.ER;
@@ -38,13 +38,13 @@ function finiteAutomata(str) {
             }
 
             case STATES.SK: {
-                if (char === TERMINALS[0]) {
+                if (char === TERMINALS[0] && isLastSymbol) {
                     currentState = STATES.SL;
-                    html+=('<div>' + char + '-->' + STATES.SL + '</div>');
+                    html+=('<div>' + char + ' --> ' + STATES.SL + '</div>');
                 }
                 else if (char === TERMINALS[1]) {
                     currentState = STATES.SK;
-                    html+=('<div>' +char + '-->' + STATES.SK + '</div>');
+                    html+=('<div>' +char + ' --> ' + STATES.SK + '</div>');
                 }
                 else {
                     currentState = STATES.ER;
@@ -53,20 +53,14 @@ function finiteAutomata(str) {
             }
 
             case STATES.SL: {
-                if (char === TERMINALS[1]) {
-                    currentState = STATES.K;
-                    html+=('<div>' +char + '-->' + STATES.K + ' </div>');
-                }
-                else {
+                if (!isLastSymbol) {
                     currentState = STATES.ER;
                 }
                 break;
             }
 
             case STATES.K: {
-                if (!isLastSymbol) {
-                    currentState = STATES.ER;
-                }
+                currentState = STATES.ER;
                 break;
             }
             case STATES.S: {
